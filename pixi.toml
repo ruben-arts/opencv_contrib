@@ -1,0 +1,17 @@
+[project]
+name = "opencv_contrib"
+description = "small opencv cpp example"
+authors = ["Ruben Arts <ruben.arts@hotmail.com>"]
+channels = ["conda-forge"]
+platforms = ["linux-64" , "win-64", "osx-64", "osx-arm64"]
+
+[tasks]
+build = "mkdir -p build && cd build && cmake .. && make"
+start = {cmd = "./build/TestProject", depends_on = ["build"]}
+clean = "rm -rf build"
+
+[dependencies]
+libopencv = ">=4.9.0,<4.10"
+cmake = ">=3.28.3,<3.29"
+compilers = ">=1.7.0,<1.8"
+
